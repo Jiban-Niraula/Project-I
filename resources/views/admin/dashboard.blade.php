@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('title','Admin DashBoard')
 @section('content')
 
 <div>
@@ -68,6 +69,8 @@
         </div>
     </div>
 </div>
+
+
 
 @endsection
 
