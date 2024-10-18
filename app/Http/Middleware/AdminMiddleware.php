@@ -5,7 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\support\facades\Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Admin\CategoryRequestForm;
 
 class AdminMiddleware
 {
@@ -16,17 +17,16 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
-            if(Auth::user()->role_as=='1'){
+        if (Auth::check()) {
+            if (Auth::user()->role_as == '1') {
                 return $next($request);
+            } elseif (Auth::user()->role_as == '2') {
+                return redirect('/home')->with('status', "Access Denied! As you are not an admin");
+            } else {
+                return redirect('/home')->with('status', "Access Denied! As you are neither an admin nor a registered user");
             }
-            else if(Auth::user()->role_as=='2'){
-               return redirect('/home')->with('status',"Access Denied! As you are not an admin");
-            }
-            else{
-                return redirect('/home')->with('status',"Access Denied! As you are neither an admin nor a registered user");
-            }
+        } else {
+            return redirect('/login')->with('status', "Please login to access the admin panel");
         }
-
     }
 }
