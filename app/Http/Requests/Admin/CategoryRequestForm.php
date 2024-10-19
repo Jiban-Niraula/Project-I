@@ -21,17 +21,26 @@ class CategoryRequestForm extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             // Rules for Input field validation
             'name' => ['required', 'string', 'max:200'],
             'slug' => ['required', 'string', 'max:200'],
             'description' => ['required'],
-            'image' => ['required', 'mimes:jpg,jpeg,png', 'max:2500'],
             'meta_title' => ['required', 'string', 'max:200'],
             'meta_description' => ['required', 'string'],
             'meta_keyword' => ['required', 'string'],
-            'navbar_status' => ['nullable', 'boolean'],
-            'status' => ['nullable', 'boolean'],
+            'navbar_status' => ['nullable'],
+            'status' => ['nullable'],
         ];
+
+        // If the request is not updating (i.e., creating a new category), make image required
+        if ($this->isMethod('post')) {
+            $rules['image'] = ['required', 'mimes:jpg,jpeg,png', 'max:2500'];
+        } else {
+            // For updating, image is optional
+            $rules['image'] = ['nullable', 'mimes:jpg,jpeg,png', 'max:2500'];
+        }
+
+        return $rules;
     }
 }

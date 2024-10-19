@@ -39,7 +39,7 @@
                             <td>{{ $item -> status=='1' ? "Hidden":"Shown"}}</td>
 
                             <td>
-                               <a href=""><button class="btn btn-success">Edit</button></a>
+                               <a href="{{url('admin/edit-category/'.$item->id)}}"><button class="btn btn-success">Edit</button></a>
                                <a href=""><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>

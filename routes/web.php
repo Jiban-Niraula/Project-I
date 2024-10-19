@@ -30,6 +30,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
 
     //Route to add the category
     Route::post('add-category',[App\Http\Controllers\Admin\CategoryController::class,'store']);
+
+    //Route to edit the category
+    Route::get('edit-category/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'edit']);
+
+    //Submit the changed made after edit
+    Route::put('update-category/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'update']);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
