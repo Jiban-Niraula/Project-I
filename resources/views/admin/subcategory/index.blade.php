@@ -1,5 +1,6 @@
 @extends('layouts.master') <!-- Change this to your main layout -->
 
+@section('title','SubCategories')
 @section('content')
     <div class="container">
         <div class="card mt-4">
@@ -12,7 +13,7 @@
             <div class="card-body">
                 @if (session('message'))
                 <div class="alert alert-success">{{ session('message') }}</div>
-            @endif
+                 @endif
                 <table class="table table-bordered table-fixed mt-4">
                     <thead>
                         <tr>
