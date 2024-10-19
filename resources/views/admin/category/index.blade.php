@@ -40,7 +40,7 @@
 
                             <td>
                                <a href="{{url('admin/edit-category/'.$item->id)}}"><button class="btn btn-success">Edit</button></a>
-                               <a href=""><button class="btn btn-danger">Delete</button></a>
+                               <a href="{{('delete-category/'.$item->id)}}"><button class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>
 

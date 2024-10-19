@@ -15,8 +15,15 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/add-category')}}">Add Category</a>
                         <a class="nav-link" href="{{ url('admin/category')}}">View Category</a>
+                        <a class="nav-link" href="{{ url('admin/add-category')}}">Add Category</a>
+                    </nav>
+                </div>
+
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ url('admin/subcategory')}}">View SubCategory</a>
+                        <a class="nav-link" href="{{ url('admin/add-subcategory')}}">Add SubCategory</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

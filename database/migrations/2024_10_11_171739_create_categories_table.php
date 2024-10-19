@@ -23,7 +23,7 @@ return new class extends Migration
             $table->tinyInteger('navbar_status')->default('0');
             $table->tinyInteger('status')->default('0');
             $table->integer('created_by');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

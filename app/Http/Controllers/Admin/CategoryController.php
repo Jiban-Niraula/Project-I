@@ -12,9 +12,10 @@ use App\Http\Middleware\AdminMiddleware;
 class CategoryController extends Controller
 {
     public function index(){
-        $category = Category::all();
-        return view('admin.category.index',compact('category'));
-    }
+            // Fetch only categories where is_deleted is false
+            $category = Category::where('is_deleted',false)->get();// or ->where('is_deleted', 0)
+            return view('admin.category.index', compact('category'));
+        }
 
     public function create(){
         return view('admin.category.create');
@@ -78,4 +79,23 @@ class CategoryController extends Controller
         // Return with a success message or redirect
         return redirect('admin/category')->with('message', 'Category Updated successfully!');
     }
+
+    public function destroy($category_id){
+        // Find the category by ID
+        $category = Category::find($category_id);
+
+        // Check if the category exists
+        if ($category) {
+            // Perform soft delete
+            $category->is_deleted = true; // or $category->is_deleted = 1;
+            $category->save();
+
+            // Return a success message or redirect
+            return redirect('admin/category')->with('message', 'Category deleted successfully!');
+        }
+
+        // If the category does not exist
+        return redirect('admin/category')->with('error', 'Category not found!');
+    }
+
 }
