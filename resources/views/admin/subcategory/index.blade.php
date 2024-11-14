@@ -18,10 +18,11 @@
                     <thead>
                         <tr>
                             <th style="width: 10%;">S.N.</th>
-                            <th style="width: 30%;">Subcategory Name</th>
+                            <th style="width: 25%;">Subcategory Name</th>
                             <th style="width: 25%;">Under Category</th>
-                            <th style="width: 15%;">Status</th>
-                            <th style="width: 15%;">Actions</th>
+                            <th style="width: 10%;">Created by</th>
+                            <th style="width: 7%;">Status</th>
+                            <th style="width: 12%;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->category->name ?? 'N/A' }}</td> <!-- Assuming you have a relationship with categories -->
+                            <td>{{ $item->Created_by->name ?? 'N/A' }}</td>
                             <td>{{ $item->status == '1' ? "Hidden" : "Shown" }}</td>
                             <td>
                                 <a href="{{ url('admin/edit-subcategory/' . $item->id) }}">

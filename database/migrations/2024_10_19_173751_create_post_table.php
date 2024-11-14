@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
-            $table->integer('subcategory_id');
+            $table->unsignedBigInteger('category_id'); // It is recommended to use unsignedBigInteger for foreign keys
+            $table->unsignedBigInteger('subcategory_id');
             $table->string('name');
             $table->string('slug')->unique();
             $table->mediumText('description');
@@ -23,7 +23,11 @@ return new class extends Migration
             $table->mediumText('meta_description')->nullable();
             $table->mediumText('meta_keyword')->nullable();
             $table->tinyInteger('status')->default('0');
-            $table->integer('created_by');
+
+            // Defining created_by as a foreign key that references users.id
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

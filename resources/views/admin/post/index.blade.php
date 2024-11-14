@@ -25,9 +25,10 @@
                     <tr>
                         <th style="width: 05%;">S.N.</th>
                         <th style="width: 20%;">Post Title</th>
-                        <th style="width: 25%;">Category</th>
+                        <th style="width: 20%;">Category</th>
                         <th style="width: 10%;">SubCategory</th>
-                        <th style="width: 10%;">State</th>
+                        <th style="width: 7%">Created by</th>
+                        <th style="width: 8%;">State</th>
                         <th style="width: 10%;">Actions</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->Category->name }}</td>
                         <td>{{ $item->subcategory->name }}</td>
+                        <td>{{$item->Created_by->name ?? 'N/A'}}</td>
                         <td>{{ $item->status == 1 ? 'Hidden':'Visible'}}</td>
                         <td>
                             <a href="{{url('admin/edit-post/'.$item->id)}}"><button class="btn btn-success">Edit</button></a>

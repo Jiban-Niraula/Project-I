@@ -36,4 +36,10 @@ class Post extends Model
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id', 'id'); // Corrected class name casing and foreign/local keys
     }
+
+    public function created_by()
+    {
+    return $this->belongsTo(User::class, 'created_by','id'); // Adjust 'created_by' if necessary
+    }
+
 }
