@@ -21,6 +21,7 @@ class Category extends Model
         'meta_keyword',
         'navbar_status',
         'status',
+        'is_deleted',
         'created_by',
     ];
 }

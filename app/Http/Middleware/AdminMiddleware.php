@@ -22,11 +22,9 @@ class AdminMiddleware
                 return $next($request);
             } elseif (Auth::user()->role_as == '2') {
                 return redirect('/home')->with('status', "Access Denied! As you are not an admin");
-            } else {
-                return redirect('/home')->with('status', "Access Denied! As you are neither an admin nor a registered user");
-            }
         } else {
             return redirect('/login')->with('status', "Please login to access the admin panel");
         }
+    }
     }
 }
