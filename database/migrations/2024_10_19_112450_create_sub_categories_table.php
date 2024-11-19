@@ -17,7 +17,6 @@ class CreateSubCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique(); // Unique slug for the subcategory
-            $table->foreignId('category_id')->constrained()->onDelete('cascade'); // Foreign key reference to categories
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade'); // Reference to users table
             $table->boolean('navbar_status')->default(false);
             $table->boolean('status')->default(true);

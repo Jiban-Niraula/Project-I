@@ -43,7 +43,6 @@ class SubCategoryController extends Controller
         $subcategory = new SubCategory();
         $subcategory->name = $validatedData['name'];
         $subcategory->slug = $slug;
-        $subcategory->category_id = $validatedData['category_id'];
         $subcategory->navbar_status = $request->has('navbar_status');
         $subcategory->status = $request->has('status');
         $subcategory->created_by = auth()->id();

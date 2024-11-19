@@ -28,18 +28,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="category_id" class="mb-1">Under Category</label>
-                        <select name="category_id" class="form-control">
-                            <option value="">Select Category</option>
-                            @foreach($categories as $category) <!-- Assuming you have a $categories array -->
-                                <option value="{{ $category->id }}" {{ $subcategory->category_id == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
                         <label for="name" class="mb-1">Subcategory Slug</label>
                         <input type="text" value="{{ $subcategory->slug }}" name="slug" class="form-control">
                     </div>

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->mediumText('meta_description')->nullable();
             $table->mediumText('meta_keyword')->nullable();
             $table->tinyInteger('status')->default('0');
+            $table->boolean('is_deleted')->default('0');
 
             // Defining created_by as a foreign key that references users.id
             $table->unsignedBigInteger('created_by');

@@ -26,15 +26,6 @@
                         <input type="text" name="name" class="form-control" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="category_id" class="mb-1">Select Category</label>
-                        <select name="category_id" class="form-control" required>
-                            <option value="">Select a Category</option>
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
 
                     <div class="mb-3">
                         <label for="slug" class="mb-1">SubCategory Slug</label>

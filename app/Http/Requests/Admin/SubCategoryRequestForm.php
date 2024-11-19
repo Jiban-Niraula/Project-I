@@ -25,7 +25,6 @@ class SubCategoryRequestForm extends FormRequest
             // Rules for Input field validation
             'name' => ['required', 'string', 'max:200'],
             'slug' => ['required', 'string', 'max:200'],
-            'category_id' => ['required', 'exists:categories,id'], // Ensure the category ID exists
             'navbar_status' => ['nullable'],
             'status' => ['nullable'],
         ];

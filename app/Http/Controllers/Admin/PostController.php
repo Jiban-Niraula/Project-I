@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::all();
+        $posts = Post::where('is_deleted', false)->get();
         return view('admin.post.index', compact('posts'));
     }
 
@@ -52,6 +52,59 @@ class PostController extends Controller
 
     }
 
+    public function edit($post_id)
+    {
+    $post = Post::find($post_id);
+    if (!$post) {
+        return redirect('admin/posts')->with('error', 'Post not found!');
+    }
 
+    $categories = Category::all();
+    $subcategories = SubCategory::all();
+
+    return view('admin.post.edit', compact('post', 'categories', 'subcategories'));
+}
+
+public function update(PostFormRequest $request, $post_id)
+{
+    // Validate the request data
+    $data = $request->validated();
+
+    // Find the post by ID
+    $post = Post::find($post_id);
+    if (!$post) {
+        return redirect('admin/post')->with('error', 'Post not found!');
+    }
+
+    // Update post fields with validated data
+    $post->name = $data['name'];
+    $post->slug = $data['slug'];
+    $post->description = $data['description'];
+    $post->category_id = $data['category_id'];
+    $post->subcategory_id = $data['subcategory_id'];
+    $post->yt_iframe = $data['yt_iframe'];
+    $post->meta_title = $data['meta_title'];
+    $post->meta_description = $data['meta_description'];
+    $post->meta_keyword = $data['meta_keyword'];
+
+
+    // Update checkbox values
+    $post->status = $request->has('status'); // Active or not
+
+    // Save the updated post
+    $post->update();
+
+    // Redirect back with a success message
+    return redirect('admin/post')->with('message', 'Post updated successfully!');
+}
+
+public function destroy($post_id){
+    // dd($post_id);
+    $post = Post::findOrFail($post_id);
+    $post->is_deleted = true; // Soft delete
+    $post->update();
+
+    return redirect('admin/post')->with('success', 'Post deleted successfully.');
+}
 }
 

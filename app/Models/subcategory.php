@@ -12,15 +12,10 @@ class SubCategory extends Model
     protected $fillable = [
         'name',
         'slug',
-        'category_id',
         'navbar_status',
         'status',
     ];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
 
     public function created_by()
     {
