@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Category')
+@section('title','Add Faculty')
 @section('content')
 
 <div>
@@ -9,7 +9,7 @@
         <div class="card mt-4">
 
             <div class="card-header">
-                <h4>Add Category</h4>
+                <h4>Add Faculty</h4>
 
 
             </div>
@@ -22,12 +22,12 @@
                 @endif
 
 
-                <form action="{{url('admin/add-category')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/add-faculty')}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
                     <div class="mb-3">
-                        <label for="" class="mb-1">Category Name</label>
+                        <label for="" class="mb-1">Faculty Name</label>
                         <input type="text" name="name" class="form-control">
                     </div>
 
@@ -41,11 +41,18 @@
                         <textarea type="text" id="mySummernote" name="description" class="form-control" rows="3"></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="" class="mb-1">Image</label>
-                        <input type="file" name="image" class="form-control">
-                    </div>
-
+                    <h6>Level Type</h6>
+                   <div class="row mb-4">
+                        <div class="col-md-3 md3">
+                            <input type="radio" name="levelType" value="1">
+                        <label for="levelType">is Semester</label>
+                        </div>
+                        
+                        <div class="col-md-3 md3">
+                            <input type="radio" name="levelType" value="2">
+                        <label for="levelType">is Year</label>
+                        </div>
+                   </div>
                     <div class="mt-4 mb-3">
                         <h5 >SEO Tags</h5>
                     </div>

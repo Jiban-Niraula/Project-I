@@ -8,8 +8,7 @@
 
         <div class="card mt-4">
             <div class="card-header">
-                <h4 class="float-start">View Faculty</h4>
-                <a href="{{url('admin/add-faculty')}}" class="btn btn-primary float-end btn-sm"> Add Faculty</a>
+                <h4 class="float-start">View Users</h4>
             </div>
 
             <div class="card-body">
@@ -21,26 +20,30 @@
                 <table class="table table-bordered table-fixed">
                     <thead>
                         <tr>
-                            <th style="width: 10%;">S.N.</th>
-                            <th style="width: 30%;">Faculty Name</th>
-                            <th style="width: 10%;">Level Type</th>
+                            <th style="width: 5%;">S.N.</th>
+                            <th style="width: 20%;">Name</th>
+                            <th style="width: 10%;">Phone Number</th>
+                            <th style="width: 10%;">Email</th>
+                            <th style="width: 10%;">Date of Birth</th>
+                            <th style="width: 10%;">Role</th>
                             <th style="width: 15%;">Status</th>
-                            <th style="width: 10%;">Created by</th>
                             <th style="width: 15%;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($category as $index => $item)
+                        @foreach ($users as $index => $item)
                         <tr>
                             <td>{{ $index + 1}}</td>
                             <td>{{ $item -> name}}</td>
-                            <td>{{ $item -> levelType == '1' ? "Semester":"Year"}}</td>
-                            <td>{{ $item -> status=='1' ? "Hidden":"Shown"}}</td>
-                            <td>{{ $item->Created_by->name ?? 'N/A' }}</td>
+                            <td>{{ $item -> phone}}</td>
+                            <td>{{ $item -> email}}</td>
+                            <td>{{ $item -> dob}}</td>
+                            <td>{{ $item -> role_as=='1' ? "Admin":"Registered User"}}</td>
+                            <td>{{ $item->created_at}}</td>
                             <td>
                                 
                                <a href="{{url('admin/edit-category/'.$item->id)}}"><button class="btn btn-success"><i class="fas fa-edit"></i></button></a>
-                               <a href="{{('delete-category/'.$item->id)}}"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
+                               <a href="{{('delete-category/'.$item->id)}}"><button class="btn btn-danger"><i class="fas fa-eye"></i></button></a>
                             </td>
                         </tr>
 

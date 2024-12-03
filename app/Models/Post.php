@@ -31,11 +31,6 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id'); // Corrected the foreign and local keys
     }
 
-    // Define the relationship with the SubCategory model
-    public function subcategory()
-    {
-        return $this->belongsTo(SubCategory::class, 'subcategory_id', 'id'); // Corrected class name casing and foreign/local keys
-    }
 
     public function created_by()
     {

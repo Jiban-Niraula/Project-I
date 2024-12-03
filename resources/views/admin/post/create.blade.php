@@ -1,28 +1,26 @@
-@extends('layouts.master') <!-- Change this to your main layout -->
+@extends('layouts.master')
 
-@section('title','Add Posts')
+@section('title', 'Add Posts')
 
 @section('content')
 
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
-
         <div class="card-header">
             <h4 class="float-start">Add Posts</h4>
-            <a href="{{url('admin/add-post')}}" class="btn btn-primary float-end">Add Post</a>
+            <a href="{{ url('admin/add-post') }}" class="btn btn-primary float-end">Add Post</a>
         </div>
 
         <div class="card-body">
 
-            @if($errors->any())
-            @foreach ($errors->all() as $error)
-                <div class="alert alert-danger">{{ $error }}</div>
-            @endforeach
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">{{ $error }}</div>
+                @endforeach
             @endif
 
-
-            <form action="{{url('admin/add-post')}}" method="POST">
+            <form action="{{ url('admin/add-post') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
@@ -31,22 +29,21 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="category">Category</label>
-                    <select name="category_id" class="form-control">
+                    <label for="category">Faculty</label>
+                    <select name="category_id" class="form-control" id="faculty">
                         <option value="">Select Category</option>
-                        @foreach($category as $cateitem)
-                        <option value="{{$cateitem->id}}">{{$cateitem->name}}</option>
+                        @foreach ($category as $cateitem)
+                            <option value="{{ $cateitem->id }}" data-level="{{ $cateitem->levelType }}">
+                                {{ $cateitem->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="subcategory">SubCategory</label>
-                    <select name="subcategory_id" class="form-control">
-                        <option value="">Select SubCategory</option>
-                        @foreach($subcategory as $subcateitem)
-                        <option value="{{$subcateitem->id}}">{{$subcateitem->name}}</option>
-                        @endforeach
+                    <label for="subcategory">Level</label>
+                    <select name="subcategory_id" class="form-control" id="subcategory">
+                        <option value="">Select Level</option>
                     </select>
                 </div>
 
@@ -57,7 +54,7 @@
 
                 <div class="mb-3">
                     <label for="">Description</label>
-                    <textarea  id="mySummernote" name="description" rows="5" class="form-control"></textarea>
+                    <textarea id="mySummernote" name="description" rows="5" class="form-control"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -92,13 +89,46 @@
                 </div>
 
                 <div class="float-end mb-3">
-
-                        <button type="submit" class="btn btn-primary float-end">Save Post</button>
-
+                    <button type="submit" class="btn btn-primary float-end">Save Post</button>
                 </div>
             </form>
         </div>
     </div>
 
 </div>
+
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const facultySelect = document.getElementById('faculty');
+        const subcategorySelect = document.getElementById('subcategory');
+
+        function updateSubcategoryDropdown() {
+            const selectedOption = facultySelect.options[facultySelect.selectedIndex];
+            const levelType = selectedOption ? selectedOption.getAttribute('data-level') : null;
+
+            subcategorySelect.innerHTML = '<option value="">Select Level</option>';
+
+            if (levelType == 1) { // If the levelType is 1 (Semester)
+                subcategorySelect.innerHTML += `<option value="1">Semester I</option>
+                                                <option value="2">Semester II</option>
+                                                <option value="3">Semester III</option>
+                                                <option value="4">Semester IV</option>
+                                                <option value="5">Semester V</option>
+                                                <option value="6">Semester VI</option>
+                                                <option value="7">Semester VII</option>
+                                                <option value="8">Semester VIII</option>`;
+            } else if (levelType == 2) { // If the levelType is 2 (Year)
+                subcategorySelect.innerHTML += `<option value="1">Year I</option>
+                                                <option value="2">Year II</option>
+                                                <option value="3">Year III</option>
+                                                <option value="4">Year IV</option>`;
+            }
+        }
+
+        facultySelect.addEventListener('change', updateSubcategoryDropdown);
+
+        updateSubcategoryDropdown();
+    });
+</script>

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->mediumText('description')->nullable();
-            $table->string('image')->nullable();
             $table->string('meta_title');
             $table->text('meta_description');
             $table->text('meta_keyword');
+            $table->integer('levelType');
             $table->tinyInteger('navbar_status')->default('0');
             $table->tinyInteger('status')->default('0');
             $table->boolean('is_deleted')->default('0');

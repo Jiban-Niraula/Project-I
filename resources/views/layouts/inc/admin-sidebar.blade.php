@@ -11,30 +11,25 @@
                 <div class="sb-sidenav-menu-heading">Interface</div>
 
                 <!-- Category Section -->
-                <a class="nav-link" href="{{ url('admin/category/')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Category
+                <a class="nav-link" href="{{ url('admin/faculty/')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-graduation-cap"></i></div>
+                    Faculty
                 </a>
 
                 <!-- Subcategory Section -->
-                <a class="nav-link" href="{{ url('admin/subcategory')}}">
+                <a class="nav-link" href="{{ url('admin/post')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Sub Category
+                    Posts
                 </a>
                 
 
-                <!-- Posts Section -->
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Posts
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                <a class="nav-link" href="{{ url('admin/users')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    Users
                 </a>
-                <div class="collapse" id="collapsePosts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/post')}}">View Posts</a>
-                        <a class="nav-link" href="{{ url('admin/add-post')}}">Add Post</a>
-                    </nav>
-                </div>
+
+                <!-- Posts Section -->
+              
 
                 <!-- Pages Section -->
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

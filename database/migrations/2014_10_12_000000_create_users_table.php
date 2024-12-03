@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('role_as')->default('1');
+            $table->string('phone');  // Added phone number column
+            $table->date('dob');      // Added date of birth column
+            $table->boolean('is_deleted')->default(false);
+            $table->integer('role_as')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
