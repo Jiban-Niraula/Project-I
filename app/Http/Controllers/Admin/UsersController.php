@@ -14,4 +14,15 @@ class UsersController extends Controller
         $users = User::where('is_deleted', false)->get();
         return view('admin.users.index', compact('users'));
     }
+
+    public function edit($users_id) {
+        $user = User::find($users_id);
+        if (!$user) {
+            return redirect('admin/users')->with('error', 'User not found!');
+        }
+        return view('admin.users.edit', compact('user'));
+    }
+    
 }
+
+    
