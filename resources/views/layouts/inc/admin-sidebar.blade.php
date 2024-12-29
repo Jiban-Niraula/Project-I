@@ -18,7 +18,7 @@
                 </a>
 
                 <!-- post Section -->
-                <a class="nav-link {{Request::is('admin/post') ? 'active' : ''}}" href="{{ url('admin/post')}}">
+                <a class="nav-link {{Request::is('admin/post'  , 'admin/add-post' , 'admin/edit-post') ? 'active' : ''}}" href="{{ url('admin/post')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Posts
                 </a>

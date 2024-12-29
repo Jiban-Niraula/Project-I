@@ -23,6 +23,7 @@ class PostFormRequest extends FormRequest
     {
         $rules = [
             'name' => ['required','string'],
+            'subcategory' => ['required'],
             'category_id'=> ['required','integer'],
             'slug'=> ['required','string'],
             'description' => ['required'],

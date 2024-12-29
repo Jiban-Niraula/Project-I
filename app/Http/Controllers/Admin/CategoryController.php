@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\Admin\CategoryRequestForm;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\Level;
+
 
 
     class CategoryController extends Controller
@@ -102,5 +104,40 @@ use App\Http\Middleware\AdminMiddleware;
             return $slug;
         }
 
+        public function getLevels($categoryId)
+        {
+            // Fetch the category using the given categoryId
+            $category = Category::find($categoryId);
+        
+            if (!$category) {
+                return response()->json(['error' => 'Category not found'], 404);
+            }
+        
+            // Determine the levels based on the category's levelType
+            $levels = [];
+            if ($category->levelType == 1) { // If levelType is Semester
+                $levels = [
+                    ['id' => 1, 'name' => 'Semester I'],
+                    ['id' => 2, 'name' => 'Semester II'],
+                    ['id' => 3, 'name' => 'Semester III'],
+                    ['id' => 4, 'name' => 'Semester IV'],
+                    ['id' => 5, 'name' => 'Semester V'],
+                    ['id' => 6, 'name' => 'Semester VI'],
+                    ['id' => 7, 'name' => 'Semester VII'],
+                    ['id' => 8, 'name' => 'Semester VIII'],
+                ];
+            } elseif ($category->levelType == 2) { // If levelType is Year
+                $levels = [
+                    ['id' => 1, 'name' => 'Year I'],
+                    ['id' => 2, 'name' => 'Year II'],
+                    ['id' => 3, 'name' => 'Year III'],
+                    ['id' => 4, 'name' => 'Year IV'],
+                ];
+            }
+        
+            return response()->json($levels);
+        }
+        
+        
         
     }

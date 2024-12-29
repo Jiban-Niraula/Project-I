@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\PostController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
+Route::get('faculty/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'ViewCategoryPost']);
 
 
 // Routes for Registration
@@ -17,9 +17,9 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLogi
 Route::post('login-submit', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.submit');
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+// Add this line in the routes file to handle the AJAX request for getting levels
+Route::get('/admin/get-levels/{categoryId}', [PostController::class, 'getLevels'])->name('admin.get-levels');
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
@@ -35,7 +35,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     //Routes for Posts
     Route::get('post',[App\Http\Controllers\Admin\PostController::class,'index']);
-    Route::get('add-post', [App\Http\Controllers\Admin\PostController::class, 'create']);
+    Route::get('add-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.add-post');
     Route::post('add-post', [App\Http\Controllers\Admin\PostController::class, 'store']);
     Route::get('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'edit']);
     Route::put('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class, 'update']); 
