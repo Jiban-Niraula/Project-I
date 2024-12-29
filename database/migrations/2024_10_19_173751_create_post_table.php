@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id'); // It is recommended to use unsignedBigInteger for foreign keys
+<<<<<<< HEAD
             $table->integer('subcategory');
+=======
+            $table->unsignedBigInteger('subcategory_id');
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
             $table->string('name');
             $table->string('slug')->unique();
             $table->mediumText('description');

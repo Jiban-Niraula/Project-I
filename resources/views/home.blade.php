@@ -9,6 +9,7 @@
 
                 <div class="card-body">
                     @if (session('status'))
+<<<<<<< HEAD
                         <div class="alert alert-danger" role="alert">
                             {{ session('status') }}
                         </div>
@@ -20,6 +21,14 @@
                     @endif
 
                    
+=======
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
                 </div>
             </div>
         </div>

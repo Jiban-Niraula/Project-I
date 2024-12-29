@@ -11,7 +11,11 @@ class UsersController extends Controller
     //
 
     public function index(){
+<<<<<<< HEAD
         $users = User::all();
+=======
+        $users = User::where('is_deleted', false)->get();
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
         return view('admin.users.index', compact('users'));
     }
 

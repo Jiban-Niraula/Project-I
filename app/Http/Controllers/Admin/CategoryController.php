@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\Admin\CategoryRequestForm;
 use App\Http\Middleware\AdminMiddleware;
+<<<<<<< HEAD
 use App\Models\Level;
 
+=======
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 
 
     class CategoryController extends Controller
@@ -30,7 +33,11 @@ use App\Models\Level;
             $category = new Category;
 
             $category->name = $data['name'];
+<<<<<<< HEAD
             $category->slug = $this->generateSlug($data['name']);;
+=======
+            $category->slug = $data['slug'];
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
             $category->description = $data['description'];
             $category->levelType = $data['levelType'];
             $category->meta_title = $data['meta_title'];
@@ -54,7 +61,11 @@ use App\Models\Level;
 
             $category = Category::find($category_id);
             $category->name = $data['name'];
+<<<<<<< HEAD
             $category->slug = $this->generateSlug($data['name']);;
+=======
+            $category->slug = $data['slug'];
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
             $category->description = $data['description'];
             
             $category->meta_title = $data['meta_title'];
@@ -87,6 +98,7 @@ use App\Models\Level;
             return redirect('admin/faculty')->with('error', 'Category not found!');
         }
 
+<<<<<<< HEAD
         private function generateSlug($name)
         {
             // Convert to lowercase, remove special characters, and replace spaces with hyphens
@@ -139,5 +151,7 @@ use App\Models\Level;
         }
         
         
+=======
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
         
     }

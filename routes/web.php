@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\PostController;
 
@@ -21,6 +22,16 @@ Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 // Add this line in the routes file to handle the AJAX request for getting levels
 Route::get('/admin/get-levels/{categoryId}', [PostController::class, 'getLevels'])->name('admin.get-levels');
 
+=======
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
@@ -36,12 +47,24 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     //Routes for Posts
     Route::get('post',[App\Http\Controllers\Admin\PostController::class,'index']);
+<<<<<<< HEAD
     Route::get('add-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.add-post');
     Route::post('add-post', [App\Http\Controllers\Admin\PostController::class, 'store']);
     Route::get('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'edit']);
     Route::put('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class, 'update']);
+=======
+    Route::get('add-post', [App\Http\Controllers\Admin\PostController::class, 'create']);
+    Route::post('add-post', [App\Http\Controllers\Admin\PostController::class, 'store']);
+    Route::get('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'edit']);
+    Route::put('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class, 'update']); 
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
     Route::get('delete-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'destroy']);
 
     //Routes for Users
     Route::get('users',[App\Http\Controllers\Admin\UsersController::class,'index']);
+<<<<<<< HEAD
+=======
+    Route::get('edit-users/{users_id}', [App\Http\Controllers\Admin\UsersController::class,'edit']);
+    Route::put('edit-users/{users_id}', [App\Http\Controllers\Admin\UsersController::class, 'update']); 
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 });

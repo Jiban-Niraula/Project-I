@@ -1,10 +1,15 @@
 @extends('layouts.master')
 
 @section('title','Faculty')
+<<<<<<< HEAD
 
 @section('content')
 
 
+=======
+@section('content')
+
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 <div>
     <div class="container-fluid px-4">
 
@@ -20,9 +25,15 @@
                  <div class="alert alert-success">{{ session('message') }}</div>
                 @endif
 
+<<<<<<< HEAD
                 <table id="myTable" class="table table-bordered table-stripped display table-fixed" style="border-top: 1px solid #dee2e6;">
                     <thead>
                         <tr style="margin-top:10ox;">
+=======
+                <table class="table table-bordered table-fixed">
+                    <thead>
+                        <tr>
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
                             <th style="width: 10%;">S.N.</th>
                             <th style="width: 30%;">Faculty Name</th>
                             <th style="width: 10%;">Level Type</th>

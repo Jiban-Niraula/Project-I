@@ -13,7 +13,11 @@ class Post extends Model
 
     protected $fillable = [
         'category_id',
+<<<<<<< HEAD
         'subcategory',
+=======
+        'subcategory_id',
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
         'name',
         'slug',
         'description',
@@ -37,8 +41,11 @@ class Post extends Model
     return $this->belongsTo(User::class, 'created_by','id'); // Adjust 'created_by' if necessary
     }
 
+<<<<<<< HEAD
     public function user()
     {
     return $this->belongsTo(User::class, 'created_by','id'); // Adjust 'created_by' if necessary
     }
+=======
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 }

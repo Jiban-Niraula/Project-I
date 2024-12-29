@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
     <title>{{ config('app.name') }}</title>
+=======
+    <title>{{ config('app.name', 'Laravel') }}</title>
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -23,7 +27,11 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+<<<<<<< HEAD
                     {{ config('app.name') }}
+=======
+                    {{ config('app.name', 'Note Posting Site') }}
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -74,11 +82,18 @@
             </div>
         </nav>
 
+<<<<<<< HEAD
         
     </div>
     <main class="py-4">
         @yield('content')
     </main>
+=======
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 
         <!-- Scripts -->
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>

@@ -17,7 +17,11 @@
                  <div class="alert alert-success">{{ session('message') }}</div>
                 @endif
 
+<<<<<<< HEAD
                 <table id="myTable" class="table display table-bordered table-fixed" style="border-top: 1px solid #dee2e6;">
+=======
+                <table class="table table-bordered table-fixed">
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
                     <thead>
                         <tr>
                             <th style="width: 5%;">S.N.</th>

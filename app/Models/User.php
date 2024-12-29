@@ -21,8 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'phone',      // Added phone field
+<<<<<<< HEAD
         'dob', 
         'status',       // Added date of birth field
+=======
+        'dob',        // Added date of birth field
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
         'password',
     ];
 

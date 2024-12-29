@@ -36,6 +36,7 @@
                         <label for="description" class="mb-1">Description</label>
                         <textarea name="description" id="mySummernote" class="form-control" rows="3">{{ $category->description }}</textarea>
                     </div>
+<<<<<<< HEAD
                     
                     <h6>Level Type</h6>
                     <div class="row mb-4">
@@ -48,6 +49,25 @@
                             <input type="radio" name="levelType" value="2" {{ $category->levelType == 2 ? 'checked' : '' }}>
                             <label for="levelType">is Year</label>
                          </div>
+=======
+
+                    <div class="mb-3">
+                        <label for="image" class="mb-1">Image</label>
+                        <div>
+                            @if($category->image && file_exists(public_path('uploads/category/'.$category->image)))
+                                <img src="{{ asset('uploads/category/'.$category->image) }}" alt="Category Image" width="75" height="75">
+                            @else
+                                <p>No image available</p>
+                            @endif
+                        </div>
+                        <div>
+                            @if($category->image)
+                             Current Image:{{ $category->image }}
+                            @endif
+                            <input type="file" name="image" class="form-control">
+                            <input type="hidden" name="old_image" value="{{ $category->image }}"
+                        </div>
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
                     </div>
 
                     <div class="mt-4 mb-3">

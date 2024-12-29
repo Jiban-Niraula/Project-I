@@ -11,6 +11,10 @@
             <div class="card-header">
                 <h4>Add Faculty</h4>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
             </div>
             <div class="card-body">
 
@@ -99,6 +103,9 @@
 </div>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8de0a9524c2f700101684a16472758e507afcee5
 @endsection
 
