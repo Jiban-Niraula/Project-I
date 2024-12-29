@@ -37,4 +37,8 @@ class Post extends Model
     return $this->belongsTo(User::class, 'created_by','id'); // Adjust 'created_by' if necessary
     }
 
+    public function user()
+    {
+    return $this->belongsTo(User::class, 'created_by','id'); // Adjust 'created_by' if necessary
+    }
 }
