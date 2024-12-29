@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 
 Route::get('/home', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
 Route::get('faculty/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'ViewCategoryPost']);
+Route::get('faculty/{category_slug}/{post_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'ViewPost']);
 
 
 // Routes for Registration
@@ -38,7 +39,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('add-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('admin.add-post');
     Route::post('add-post', [App\Http\Controllers\Admin\PostController::class, 'store']);
     Route::get('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'edit']);
-    Route::put('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class, 'update']); 
+    Route::put('edit-post/{post_id}', [App\Http\Controllers\Admin\PostController::class, 'update']);
     Route::get('delete-post/{post_id}', [App\Http\Controllers\Admin\PostController::class,'destroy']);
 
     //Routes for Users
